@@ -1,17 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { 
+  EventsListComponent,
+  EventThumbnailComponent,
+  EventService,
+  EventDetailsComponent,
+  CreateEventComponent,
+  EventRouteActivator,
+  EventListResolver
+} from './events/index';
 import { EventsAppComponent } from './events-app.component';
-import { EventsListComponent } from './events/events-list.component';
-import { EventThumbnailComponent } from './events/event-thumbnail.component';
 import { NavBarComponent } from './nav/navbar.component';
-import { EventService } from './events/shared/event.service';
-import { EventDetailsComponent } from 'src/app/events/event-details/event-details.component';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from 'src/app/routes';
-import { CreateEventComponent } from 'src/app/events/create-event.component';
 import { Error404Component } from 'src/app/errors/404.component';
-import { EventRouteActivator } from 'src/app/events/event-details/event-route-activator.service';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { EventRouteActivator } from 'src/app/events/event-details/event-route-ac
   bootstrap: [EventsAppComponent],
   providers: [EventService, EventRouteActivator,
   { provide: 'canDeactivateCreateEvent', useValue: checkDirtyState},
+  EventListResolver
   ]
 })
 export class AppModule { }
