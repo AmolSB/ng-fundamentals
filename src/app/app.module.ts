@@ -15,6 +15,8 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from 'src/app/routes';
 import { Error404Component } from 'src/app/errors/404.component';
 import { AuthService } from 'src/app/user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from 'src/app/events/event-details/create-session.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,13 @@ import { AuthService } from 'src/app/user/auth.service';
     EventThumbnailComponent,
     NavBarComponent,
     CreateEventComponent,
-    Error404Component
+    Error404Component,
+    CreateSessionComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   bootstrap: [EventsAppComponent],
